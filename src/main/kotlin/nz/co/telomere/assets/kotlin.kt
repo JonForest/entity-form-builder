@@ -1,6 +1,5 @@
 package nz.co.telomere.assets
 
-import nz.co.telomere.assets.camelToSnakeCase
 import nz.co.telomere.models.Entity
 
 

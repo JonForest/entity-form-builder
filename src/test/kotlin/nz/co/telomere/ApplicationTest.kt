@@ -1,17 +1,8 @@
 package nz.co.telomere
 
-import io.ktor.routing.*
 import io.ktor.http.*
-import io.ktor.features.*
-import io.ktor.serialization.*
-import io.ktor.application.*
-import io.ktor.response.*
-import io.ktor.request.*
 import kotlin.test.*
 import io.ktor.server.testing.*
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.encodeToString
-import nz.co.telomere.models.Entity
 import nz.co.telomere.plugins.*
 
 val config = """
