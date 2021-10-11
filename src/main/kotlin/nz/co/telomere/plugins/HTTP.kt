@@ -4,7 +4,8 @@ import io.ktor.features.*
 import io.ktor.http.*
 import io.ktor.application.*
 import io.ktor.response.*
-import io.ktor.request.*
+import nz.co.telomere.models.ResponseError
+import org.sqlite.SQLiteException
 
 fun Application.configureHTTP() {
     install(Compression) {
@@ -22,4 +23,7 @@ fun Application.configureHTTP() {
         anyHost() // @TODO: Don't do this in production if possible. Try to limit it.
     }
 
+    install(StatusPages) {
+        exception<Throwable> { cause -> call.respond(ResponseError(error = cause.toString())) }
+    }
 }

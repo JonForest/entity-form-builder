@@ -1,4 +1,4 @@
-package nz.co.telomere.dataAccess
+package nz.co.telomere.services.dataAccess
 
 import nz.co.telomere.assets.*
 import org.sqlite.SQLiteException
@@ -23,11 +23,10 @@ class Q(val conn: Connection) {
         val props = klass.declaredMemberProperties.filter { it.name != "id"}
         val columns = props.map { it.name.camelToSnakeCase() }
 
-        var query = ""
-        if (id == null) {
-            query = "insert into $table (${columns.joinToString(", ")}) values (${"?,".repeat(columns.size).dropLast(1)})"
+        val query = if (id == null) {
+            "insert into $table (${columns.joinToString(", ")}) values (${"?,".repeat(columns.size).dropLast(1)})"
         } else {
-            query = "update $table set ${columns.joinToString("=?,")}=? where id=?"
+            "update $table set ${columns.joinToString("=?,")}=? where id=?"
         }
         val saveStatement = this.conn.prepareStatement(query)
 
@@ -68,7 +67,7 @@ class Q(val conn: Connection) {
         return this
     }
 
-    inline fun <reified T: Any>into(): List <T> {
+    fun <T: Any>into(clazz: KClass<T>): List <T> {
         val results: MutableList<T> = mutableListOf()
         val isSuccess = this.statement.execute()
         if (!isSuccess) throw Exception("Query failed")
@@ -87,7 +86,7 @@ class Q(val conn: Connection) {
                     }
             }
 
-            results.add(mapToObject(args, T::class))
+            results.add(mapToObject(args, clazz))
         }
 
         return Collections.unmodifiableList(results)
