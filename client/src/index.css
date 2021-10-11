@@ -1,0 +1,28 @@
+/*@import "css/prism.css";*/
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.text-input-font {
+  font-family: Verdana;
+}
+[class^='editor-input'] {
+  width: 50%;
+}
+.editor-input-big {
+  font-size: 1.8rem;
+}
+.editor-input-med {
+  font-size: 1.5rem
+}

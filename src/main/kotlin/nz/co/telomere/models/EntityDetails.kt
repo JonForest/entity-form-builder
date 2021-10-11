@@ -1,6 +1,7 @@
 package nz.co.telomere.models
 import kotlinx.serialization.*
 
+
 @Serializable()
 data class Entity(
     val id: String? = null,
