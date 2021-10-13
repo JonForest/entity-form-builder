@@ -1,4 +1,4 @@
-export type ComponentType = {
+export type FormComponent = {
   id?: number;
   key: string;
   description: string | null;

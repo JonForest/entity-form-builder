@@ -1,4 +1,4 @@
-import { ComponentType } from '../../../types';
+import { FormComponent } from '../../../types';
 import { useState } from 'react';
 import { LiveProvider, LiveEditor } from 'react-live';
 import dracula from 'prism-react-renderer/themes/dracula';
@@ -8,8 +8,8 @@ export default function ComponentDetail({
   component,
   save,
 }: {
-  component: Partial<ComponentType>;
-  save: (component: Partial<ComponentType>) => void;
+  component: Partial<FormComponent>;
+  save: (component: Partial<FormComponent>) => void;
 }) {
   const [workingComponent, setWorkingComponent] = useState({ ...component });
   return (
@@ -26,9 +26,8 @@ export default function ComponentDetail({
           <textarea
             className="editor-input-med"
             onChange={(e) => setWorkingComponent({ ...workingComponent, description: e.target.value })}
-          >
-            {component.description || ''}
-          </textarea>
+            value={component.description || ''}
+          />
         </div>
         <div className="editor-input-med">
           <LiveProvider code={workingComponent.code || ''} theme={dracula}>

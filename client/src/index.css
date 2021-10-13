@@ -1,8 +1,9 @@
-/*@import "css/prism.css";*/
+@import "css/field-components.css";
+@import "css/common.css";
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Verdana', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -26,3 +27,4 @@ code {
 .editor-input-med {
   font-size: 1.5rem
 }
+

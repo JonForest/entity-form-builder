@@ -1,0 +1,36 @@
+#field-components {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#field-components li {
+    width: 396px;
+    margin-bottom: 18px;
+    padding: 11px 22px;
+}
+
+#field-components a {
+    text-decoration: none;
+}
+
+#field-components li .key {
+    font-size: 18px;
+    line-height: 27px;
+
+    color: #000000;
+}
+
+#field-components li .key:hover {
+    text-decoration: underline;
+}
+
+
+#field-components li .description {
+    /*font-family: Verdana;*/
+    font-size: 14px;
+    /*font-weight: 600;*/
+    line-height: 21px;
+
+    color: #696969;
+}

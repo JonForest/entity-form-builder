@@ -1,0 +1,15 @@
+button {
+    padding: 6px 14px;
+    border-radius: 5px;
+    border: none;
+}
+
+
+button.primary {
+    background-color: #366BE8;
+    color: #FFFFFF;
+}
+
+a .buttonLink {
+    text-decoration: none;
+}

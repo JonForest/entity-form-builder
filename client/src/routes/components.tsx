@@ -1,10 +1,10 @@
 import { useApi } from '../hooks/use-api';
 import ComponentsList from '../components/route-components/components/component-list';
-import { ComponentType } from '../types';
-import { Link } from 'react-router-dom';
+import { FormComponent } from '../types';
+import Button from '../components/common/button';
 
 export default function ComponentsListRoute() {
-  const { isLoading, error, data } = useApi<Array<ComponentType>>('http://localhost:8080/api/component');
+  const { isLoading, error, data } = useApi<Array<FormComponent>>('http://localhost:8080/api/component');
 
   console.log(isLoading, error, data);
   if (isLoading) return <p>Loading...</p>;
@@ -14,7 +14,9 @@ export default function ComponentsListRoute() {
   return (
     <>
       <ComponentsList components={data} />
-      <Link to="/component/new">Add component</Link>
+      <div style={{ paddingLeft: '22px', paddingTop: '11px' }}>
+        <Button to="/component/new">Add component</Button>
+      </div>
     </>
   );
 }
