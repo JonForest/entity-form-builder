@@ -16,5 +16,10 @@ export default function NewComponentDetailRoute() {
     history.push('/');
   }
 
-  return <ComponentDetail component={{}} save={saveAction} />;
+  return (
+    <>
+      <h1>Add new component</h1>
+      <ComponentDetail component={{}} save={saveAction} />;
+    </>
+  );
 }

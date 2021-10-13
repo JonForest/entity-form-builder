@@ -8,7 +8,6 @@ interface componentListInterface {
 export default function componentList({ components }: componentListInterface) {
   return (
     <>
-      <h1>Component List</h1>
       <ul id="field-components">
         {components.map((component) => (
           <ComponentListItem key={component.id} component={component} />

@@ -1,5 +1,8 @@
+@import "css/variables.css";
 @import "css/field-components.css";
 @import "css/common.css";
+@import "css/layout.css";
+@import "css/utility.css";
 
 body {
   margin: 0;
@@ -19,7 +22,8 @@ code {
   font-family: Verdana;
 }
 [class^='editor-input'] {
-  width: 50%;
+  width: 100%;
+  box-sizing: border-box;
 }
 .editor-input-big {
   font-size: 1.8rem;

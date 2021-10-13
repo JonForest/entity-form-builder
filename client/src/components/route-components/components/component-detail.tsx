@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { LiveProvider, LiveEditor } from 'react-live';
 import dracula from 'prism-react-renderer/themes/dracula';
 import { Link } from 'react-router-dom';
+import Button from '../../common/button';
 
 export default function ComponentDetail({
   component,
@@ -35,10 +36,10 @@ export default function ComponentDetail({
           </LiveProvider>
         </div>
       </div>
-      <Link to="/">Cancel</Link>
-      <button type="button" onClick={() => save(workingComponent)}>
-        Save
-      </button>
+      <div className="button-list m-top-2">
+        <Link to="/">Cancel</Link>
+        <Button onClick={() => save(workingComponent)}>Save</Button>
+      </div>
     </>
   );
 }

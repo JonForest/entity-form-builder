@@ -13,8 +13,9 @@ export default function ComponentsListRoute() {
 
   return (
     <>
+      <h1>Component list</h1>
       <ComponentsList components={data} />
-      <div style={{ paddingLeft: '22px', paddingTop: '11px' }}>
+      <div style={{ paddingTop: '11px' }}>
         <Button to="/component/new">Add component</Button>
       </div>
     </>

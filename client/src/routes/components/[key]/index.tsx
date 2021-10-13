@@ -19,5 +19,10 @@ export default function ComponentDetailRoute() {
   if (error) return <p>Error: {error}</p>;
   if (!data) return <p>Error: No data</p>;
 
-  return <ComponentDetail component={data} save={saveAction} />;
+  return (
+    <>
+      <h1>Edit component</h1>
+      <ComponentDetail component={data} save={saveAction} />
+    </>
+  );
 }

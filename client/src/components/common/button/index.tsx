@@ -7,29 +7,26 @@ enum ButtonType {
 
 interface ButtonCommonInterface {
   buttonType?: ButtonType;
-  children: any;
-  to?: string;
-  action?: () => void;
 }
 
-// interface ButtonToInterface extends ButtonCommonInterface {
-//   to: string;
-//   // action: never;
-// }
-//
-// interface ButtonActionInterface extends ButtonCommonInterface {
-//   action: () => void;
-//   // to: never;
-// }
+interface ButtonToInterface extends ButtonCommonInterface {
+  to: string;
+  onClick?: never;
+}
 
-// type ButtonInterface = ButtonToInterface | ButtonActionInterface;
+interface ButtonActionInterface extends ButtonCommonInterface {
+  onClick: () => void;
+  to?: never;
+}
+
+type ButtonInterface = ButtonToInterface | ButtonActionInterface;
 
 export default function Button({
   to,
-  action,
+  onClick,
   buttonType = ButtonType.primary,
   children,
-}: PropsWithChildren<ButtonCommonInterface>) {
+}: PropsWithChildren<ButtonInterface>) {
   if (to) {
     return (
       <Link to={to} className="buttonLink">
@@ -39,7 +36,7 @@ export default function Button({
   }
 
   return (
-    <button type="button" className={buttonType} onClick={action}>
+    <button type="button" className={buttonType} onClick={onClick}>
       {children}
     </button>
   );

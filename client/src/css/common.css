@@ -13,3 +13,7 @@ button.primary {
 a .buttonLink {
     text-decoration: none;
 }
+
+.button-list *:not(:first-child)  {
+    margin-left: 20px;
+}
