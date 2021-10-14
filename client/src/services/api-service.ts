@@ -18,6 +18,13 @@ export default async function apiRequest(
     init['body'] = JSON.stringify(dataToSend);
   }
   const response = await fetch(url, init);
-  const data = await response.json();
-  return data;
+
+  let data;
+  try {
+    data = await response.text();
+    return JSON.parse(data);
+  } catch (e) {
+    // response was not json
+    return data || '';
+  }
 }

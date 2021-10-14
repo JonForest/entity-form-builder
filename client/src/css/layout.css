@@ -28,11 +28,11 @@
 
 #side-menu ul.level2 li a{
     text-decoration: none;
+    color: #FFFFFF;
 }
 #side-menu ul.level2 li a:hover{
     text-decoration: underline;
 }
-
 
 #page{
     display: flex;

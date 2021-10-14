@@ -68,6 +68,8 @@ class Q(val conn: Connection) {
     }
 
     fun <T: Any>into(clazz: KClass<T>): List <T> {
+        // TODO: Think about how we hydrate into relationships, especially without creating circular references into
+        //  one-to-many/many-to-one reflected relationships
         val results: MutableList<T> = mutableListOf()
         val isSuccess = this.statement.execute()
         if (!isSuccess) throw Exception("Query failed")

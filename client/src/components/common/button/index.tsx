@@ -7,6 +7,7 @@ enum ButtonType {
 
 interface ButtonCommonInterface {
   buttonType?: ButtonType;
+  disabled?: boolean;
 }
 
 interface ButtonToInterface extends ButtonCommonInterface {
@@ -24,6 +25,7 @@ type ButtonInterface = ButtonToInterface | ButtonActionInterface;
 export default function Button({
   to,
   onClick,
+  disabled,
   buttonType = ButtonType.primary,
   children,
 }: PropsWithChildren<ButtonInterface>) {
@@ -36,7 +38,7 @@ export default function Button({
   }
 
   return (
-    <button type="button" className={buttonType} onClick={onClick}>
+    <button type="button" className={buttonType} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );

@@ -9,6 +9,12 @@ export default function SideMenu({}: PropsWithChildren<{}>) {
           Configure
           <ul className="level2">
             <li>
+              <Link to="/entity-definition">Entity definition</Link>
+            </li>
+            <li>
+              <Link to="/form-definition">Form definition</Link>
+            </li>
+            <li>
               <Link to="/components">Field components</Link>
             </li>
           </ul>
@@ -23,10 +29,10 @@ export default function SideMenu({}: PropsWithChildren<{}>) {
               <Link to="/notimplemented">Routing</Link>
             </li>
             <li>
-              <Link to="/notimplemented">Data classes</Link>
+              <Link to="/preview/dataclass">Data classes</Link>
             </li>
             <li>
-              <Link to="/notimplemented">Database table DDL</Link>
+              <Link to="/preview/ddl">Database table DDL</Link>
             </li>
           </ul>
         </li>

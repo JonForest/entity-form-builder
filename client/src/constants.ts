@@ -1,0 +1,2 @@
+export const ENTITIES_JSON_KEY = 'FB_ENTITY_JSON';
+export const FORMS_JSON_KEY = 'FB_FORM_JSON';

@@ -17,3 +17,7 @@ a .buttonLink {
 .button-list *:not(:first-child)  {
     margin-left: 20px;
 }
+
+button:disabled {
+    background-color: #586279;
+}

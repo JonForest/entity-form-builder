@@ -34,3 +34,10 @@
 
     color: #696969;
 }
+
+/*-----------------------------------------------*/
+textarea.json-capture {
+    max-height: 70vh;
+    height: 30rem;
+    width: 100%
+}
