@@ -7,6 +7,7 @@ import io.ktor.routing.*
 import nz.co.telomere.models.FormComponent
 import nz.co.telomere.services.dataAccess.FormComponentAccess
 
+// TODO: Swap out this to use GraphQL
 fun Routing.componentApi() {
     route("/api/component") {
         get("") {

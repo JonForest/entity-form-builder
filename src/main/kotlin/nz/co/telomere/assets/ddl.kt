@@ -25,23 +25,25 @@ fun createTable(entity: Entity, schema: String = "public"): String {
         "${it.key.camelToSnakeCase()} $dataType$defaultValue$neverNull"
     } ?: listOf()
 
-    val relationships: List<String> = if (!entity.relationships.isNullOrEmpty()) {
-        entity.relationships.map {
-            // TODO: Never null?
-            val name = it.name?.camelToSnakeCase() ?: it.entity.camelToSnakeCase() + "_id"
-            "${name} string REFERENCES ${it.entity.camelToSnakeCase()} (id)"
-        }
-    } else listOf()
-    tableDefinition += columnDefs.joinToString(separator=",\n")
-    tableDefinition += if (!relationships.isNullOrEmpty()) ",\n" + relationships.joinToString(separator=",\n") else ""
+    val entities =
+        if (!entity.relationships.isNullOrEmpty()) {
+            entity.relationships.filter { it.type == "MANY_TO_ONE" || it.type == "ONE_TO_ONE" }
+        } else listOf()
+
+    val relationships: List<String> = entities.map {
+        // TODO: Never null?
+        val name = it.name?.camelToSnakeCase() ?: it.entity.camelToSnakeCase() + "_id"
+        "${name} string REFERENCES ${it.entity.camelToSnakeCase()} (id)"
+    }
+
+    tableDefinition += columnDefs.joinToString(separator = ",\n")
+    tableDefinition += if (!relationships.isNullOrEmpty()) ",\n" + relationships.joinToString(separator = ",\n") else ""
     tableDefinition += ");"
 
     // Add indexes
-    if (!entity.relationships.isNullOrEmpty()) {
-        entity.relationships.forEach {
-            val name = it.name?.camelToSnakeCase() ?: it.entity.camelToSnakeCase() + "_id"
-            tableDefinition += "\nCREATE INDEX ${entity.key}_${name}_idx ON ${entity.key} ($name);"
-        }
+    entities.forEach {
+        val name = it.name?.camelToSnakeCase() ?: it.entity.camelToSnakeCase() + "_id"
+        tableDefinition += "\nCREATE INDEX ${entity.key}_${name}_idx ON ${entity.key} ($name);"
     }
     return tableDefinition
 }
