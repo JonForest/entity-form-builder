@@ -1,7 +1,7 @@
 package nz.co.telomere.assets
 
 import nz.co.telomere.models.Entity
-import nz.co.telomere.models.RelationshipType
+//import nz.co.telomere.models.RelationshipType
 
 
 val dataTypeMapToClass = mapOf<String, String>(

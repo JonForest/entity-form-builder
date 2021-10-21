@@ -1,5 +1,4 @@
 import apiRequest, { HTTPMethod } from '../../services/api-service';
-import { ENTITIES_JSON_KEY } from '../../constants';
 import { useEffect, useState } from 'react';
 
 interface PreviewInterface {

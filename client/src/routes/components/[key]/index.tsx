@@ -3,6 +3,7 @@ import { useApi } from '../../../hooks/use-api';
 import { FormComponent } from '../../../types';
 import ComponentDetail from '../../../components/route-components/components/component-detail';
 import apiRequest, { HTTPMethod } from '../../../services/api-service';
+import { Heading } from '@chakra-ui/react';
 
 export default function ComponentDetailRoute() {
   const { key } = useParams<{ key: string }>();
@@ -21,7 +22,7 @@ export default function ComponentDetailRoute() {
 
   return (
     <>
-      <h1>Edit component</h1>
+      <Heading>Edit component</Heading>
       <ComponentDetail component={data} save={saveAction} />
     </>
   );

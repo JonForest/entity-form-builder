@@ -1,7 +1,8 @@
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { FormComponent } from '../../types';
 import ComponentDetail from '../../components/route-components/components/component-detail';
 import apiRequest, { HTTPMethod } from '../../services/api-service';
+import { Heading } from '@chakra-ui/react';
 
 export default function NewComponentDetailRoute() {
   const history = useHistory();
@@ -18,8 +19,8 @@ export default function NewComponentDetailRoute() {
 
   return (
     <>
-      <h1>Add new component</h1>
-      <ComponentDetail component={{}} save={saveAction} />;
+      <Heading>Add new component</Heading>
+      <ComponentDetail component={{}} save={saveAction} />
     </>
   );
 }

@@ -1,7 +1,6 @@
-import { PropsWithChildren } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function SideMenu({}: PropsWithChildren<{}>) {
+export default function SideMenu() {
   return (
     <div id="side-menu">
       <ul className="level1">

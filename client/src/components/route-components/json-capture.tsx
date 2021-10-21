@@ -1,5 +1,5 @@
 import { KeyboardEvent, useEffect, useState } from 'react';
-import Button from '../common/button';
+import Button from '../common/button_old';
 
 interface JsonCaptureInterface {
   storageKey: string;
@@ -13,7 +13,7 @@ export default function JsonCapture({ storageKey }: JsonCaptureInterface) {
     // Retrieve any saved data from local storage
     const json = window.localStorage.getItem(storageKey);
     if (json) setFormJson(json);
-  }, []);
+  }, [storageKey]);
 
   function preventTab(e: KeyboardEvent<HTMLTextAreaElement>) {
     if (e.key === 'Tab') {

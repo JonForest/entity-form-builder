@@ -2,8 +2,8 @@ import { FormComponent } from '../../../types';
 import { useState } from 'react';
 import { LiveProvider, LiveEditor } from 'react-live';
 import dracula from 'prism-react-renderer/themes/dracula';
-import { Link } from 'react-router-dom';
-import Button from '../../common/button';
+import { Link as RRLink } from 'react-router-dom';
+import { Input, Textarea, Button, Link, FormLabel, FormControl, Box } from '@chakra-ui/react';
 
 export default function ComponentDetail({
   component,
@@ -16,29 +16,44 @@ export default function ComponentDetail({
   return (
     <>
       <div>
-        <div>
-          <input
-            className="editor-input-big"
-            onChange={(e) => setWorkingComponent({ ...workingComponent, key: e.target.value })}
-            value={workingComponent.key || ''}
-          />
+        <div className="m-top-2">
+          <FormControl isRequired>
+            <FormLabel>Component key</FormLabel>
+            <Input
+              variant="filled"
+              onChange={(e) => setWorkingComponent({ ...workingComponent, key: e.target.value })}
+              value={workingComponent.key || ''}
+            />
+          </FormControl>
         </div>
-        <div>
-          <textarea
-            className="editor-input-med"
-            onChange={(e) => setWorkingComponent({ ...workingComponent, description: e.target.value })}
-            value={component.description || ''}
-          />
+        <div className="m-top-2">
+          <FormControl>
+            <FormLabel>Description</FormLabel>
+            <Textarea
+              variant="filled"
+              onChange={(e) => setWorkingComponent({ ...workingComponent, description: e.target.value })}
+              value={workingComponent.description || ''}
+            />
+          </FormControl>
         </div>
-        <div className="editor-input-med">
-          <LiveProvider code={workingComponent.code || ''} theme={dracula}>
-            <LiveEditor onChange={(code) => setWorkingComponent({ ...workingComponent, code })} language="tsx" />
-          </LiveProvider>
+        <div className="editor-input-med m-top-2">
+          <FormControl isRequired>
+            <FormLabel>Code</FormLabel>
+            <Box borderRadius="md" overflow="hidden">
+              <LiveProvider code={workingComponent.code || ''} theme={dracula}>
+                <LiveEditor onChange={(code) => setWorkingComponent({ ...workingComponent, code })} language="tsx" />
+              </LiveProvider>
+            </Box>
+          </FormControl>
         </div>
       </div>
       <div className="button-list m-top-2">
-        <Link to="/">Cancel</Link>
-        <Button onClick={() => save(workingComponent)}>Save</Button>
+        <Link as={RRLink} to="/components">
+          Cancel
+        </Link>
+        <Button colorScheme="blue" onClick={() => save(workingComponent)}>
+          Save
+        </Button>
       </div>
     </>
   );
